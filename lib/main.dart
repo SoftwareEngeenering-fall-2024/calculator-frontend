@@ -1,9 +1,12 @@
 import 'dart:math';
 
+import 'package:calculator_frontend/presentation/calc_button.dart';
 import 'package:flutter/material.dart';
 
+import 'config/app.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
 class MyApp extends StatelessWidget {
@@ -32,28 +35,6 @@ class MyHomePage extends StatefulWidget {
   
 }
 
-class CalcButton extends StatelessWidget {
-  const CalcButton({super.key, required this.size, required this.text, this.factor = 1.0 , required this.buttonColor, this.textColor = white});
-  static const Color white = Color(0xFFFFFFFF);
-  final String text;
-  final double size;
-  final double factor;
-  final Color buttonColor;
-  final Color textColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-        width: size,
-        height: size * factor,
-        child: ElevatedButton(
-          child: Text(text, style: TextStyle(fontSize: size * factor / 4, color: textColor)),
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(shape: StadiumBorder(), backgroundColor: buttonColor),
-        ));
-  }
-}
-
 class textLine extends StatelessWidget{
   const textLine({super.key, required this.text});
   final String text;
@@ -61,7 +42,7 @@ class textLine extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return FittedBox(
-      child: Text(text, textDirection: TextDirection.ltr,selectionColor: Color(0xFFFFFFFF),));
+      child: Text(text, textDirection: TextDirection.ltr, selectionColor: Color(0xFFFFFFFF),),);
   }
 }
 
@@ -136,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CalcButton(size: size * 2 + 24, text: "0             ", factor: 0.5,buttonColor: Color(0xFF424242)),
+                  CalcButton(size: size * 2 + 24, text: "0", factor: 0.5, buttonColor: Color(0xFF424242)),
                   CalcButton(size: size, text: ",",buttonColor: Color(0xFF424242)),
                   CalcButton(size: size, text: "=",buttonColor: Color(0xFFFFA726)),
                 ],
