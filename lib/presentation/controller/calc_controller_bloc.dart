@@ -121,9 +121,18 @@ class CalcControllerBloc
       return;
     }
     if (event.calcSign != CalcNumberSign.zero) {
-      emit(
-        CalcControllerWorkedState(expression: curStateExpr + event.calcSign.displaySymbol),
-      );
+      if (!curStateExpr
+          .substring(lastNumBegin)
+          .contains(CalcSigns.doubleSign.displaySymbol) && curStateExpr.length - 1 == lastNumBegin && curStateExpr[curStateExpr.length - 1] == CalcNumberSign.zero.displaySymbol) {
+        emit(
+          CalcControllerWorkedState(expression: curStateExpr.substring(0, curStateExpr.length - 1) + event.calcSign.displaySymbol),
+        );
+      } else {
+        emit(
+          CalcControllerWorkedState(
+              expression: curStateExpr + event.calcSign.displaySymbol),
+        );
+      }
     } else {
       if (!curStateExpr
           .substring(lastNumBegin)
