@@ -3,33 +3,23 @@ import 'package:flutter/material.dart';
 class CalcButton extends StatelessWidget {
   const CalcButton({
     super.key,
-    required this.size,
     required this.text,
-    this.factor = 1.0,
-    required this.buttonColor,
-    this.textColor = Colors.white,
+    required this.onTap,
   });
 
   final String text;
-  final double size;
-  final double factor;
-  final Color buttonColor;
-  final Color textColor;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: size,
-      height: size * factor,
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
       child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          shape: StadiumBorder(),
-          backgroundColor: buttonColor,
-        ),
-        child: Text(
-          text,
-          style: TextStyle(fontSize: size * factor / 4, color: textColor),
+        onPressed: onTap,
+        child: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Text(text),
         ),
       ),
     );

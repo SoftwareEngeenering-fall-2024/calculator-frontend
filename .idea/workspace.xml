@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81f69fba-d109-4215-978b-6362e95f9876" name="Changes" comment="init flutter project + add localization, di, some linter rules for beginning" />
+    <list default="true" id="81f69fba-d109-4215-978b-6362e95f9876" name="Changes" comment="на созвоне">
+      <change afterPath="$PROJECT_DIR$/lib/domain/calculation/usecases/calculation_bloc.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/domain/calculation/usecases/calculation_event.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/domain/calculation/usecases/calculation_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/presentation/controller/calc_controller_bloc.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/presentation/controller/calc_controller_event.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/presentation/controller/calc_controller_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/build/entrypoint/build.dart" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/build/entrypoint/build.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/build/entrypoint/build.dart.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/build/entrypoint/build.dart.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/build/fcd1995bc647fb959e82ea360c6c2c9a/asset_graph.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/build/fcd1995bc647fb959e82ea360c6c2c9a/asset_graph.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/config/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/config/di/di.config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config/di/di.config.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/calc_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/calc_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/main_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,27 +57,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "master",
-    "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "/Users/masha/StudioProjects/calculator_frontend",
-    "settings.editor.selected.configurable": "flutter.settings",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dinara__dev&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/masha/StudioProjects/calculator_frontend/lib/domain/history&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;flutter.settings&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/domain/history" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/lib/config/locale" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/domain/history" />
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -98,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726947068359</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="на созвоне">
+      <option name="closed" value="true" />
+      <created>1727123799340</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727123799340</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +148,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="gitignore" />
     <MESSAGE value="init flutter project + add localization, di, some linter rules for beginning" />
-    <option name="LAST_COMMIT_MESSAGE" value="init flutter project + add localization, di, some linter rules for beginning" />
+    <MESSAGE value="на созвоне" />
+    <option name="LAST_COMMIT_MESSAGE" value="на созвоне" />
   </component>
 </project>
