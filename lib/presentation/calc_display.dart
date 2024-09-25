@@ -25,7 +25,7 @@ class _CalcDisplayState extends State<CalcDisplay> {
       child: LayoutBuilder(
         builder: (context, constraints) {
           int maxSymb =
-              (constraints.maxHeight ~/ 20) * (constraints.maxWidth ~/ 9);
+              (constraints.maxHeight ~/ 20) * (constraints.maxWidth ~/ 11);
           if (widget.text.length > maxSymb) {
             WidgetsBinding.instance.addPostFrameCallback((_) =>
                 _controller.jumpTo(_controller.position.maxScrollExtent));

@@ -15,6 +15,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         leading: const HistoryButton(),
         title: const Text('Калькулятор'),
       ),
