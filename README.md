@@ -12,4 +12,10 @@ nix build
 ```
 
 ### Demo
-<video src='demo/demo.mp4' width=180/>
+
+
+https://github.com/user-attachments/assets/cd1dad48-30a3-441c-9fa0-601f390d3c46
+
+
+
+
