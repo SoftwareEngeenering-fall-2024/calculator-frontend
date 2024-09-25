@@ -33,7 +33,7 @@ class CalcControllerBloc
 
   void _addCalcSign(AddOperationSign event, Emitter<CalcControllerState> emit) {
     final curState = state;
-    if (opSigns.contains(curState.expression[curState.expression.length - 1])) {
+    if (curState.expression.isNotEmpty && opSigns.contains(curState.expression[curState.expression.length - 1])) {
       emit(
         CalcControllerWorkedState(
           expression:

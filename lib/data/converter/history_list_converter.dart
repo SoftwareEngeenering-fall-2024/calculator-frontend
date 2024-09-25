@@ -1,3 +1,4 @@
+import 'package:calculator_frontend/presentation/calc_sign.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/history/entities/history_entity.dart';
@@ -11,7 +12,13 @@ class HistoryListConverter
       List.generate(json.length, (ind) {
         final entity = json[ind] as Map<String, dynamic>;
         return HistoryEntity(
-          expr: entity["expression"]! as String,
+          expr: (entity["expression"]! as String).split(
+            CalcOperationSign.multiply.exprSymbol,).join(
+            CalcOperationSign.multiply.displaySymbol,).split(
+            CalcOperationSign.division.exprSymbol,).join(
+            CalcOperationSign.division.displaySymbol,).split(
+            CalcOperationSign.sum.exprSymbol,).join(
+            CalcOperationSign.sum.displaySymbol,),
           result: entity["result"]! as String,
         );
       });
