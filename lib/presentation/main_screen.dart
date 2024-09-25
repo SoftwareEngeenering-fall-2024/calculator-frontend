@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../domain/history/usecases/history_bloc.dart';
 import 'calc_buttons.dart';
+import 'calc_display.dart';
 import 'history_screen.dart';
 
 class MainScreen extends StatelessWidget {
@@ -15,40 +16,36 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const HistoryButton(),
-        title: const Text('calculator'),
+        title: const Text('Калькулятор'),
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Flexible(flex: 1, child: CalcDisplay()),
-            Flexible(flex: 2, child: CalcButtons()),
+            Flexible(
+              flex: 1,
+              child: BlocListener<CalculationBloc, CalculationState>(
+                listener: (context, state) {
+                  if (state is CalculationSuccessState) {
+                    context
+                        .read<CalcControllerBloc>()
+                        .add(SetDisplayableExpression(expr: state.result));
+                  }
+                },
+                child: BlocBuilder<CalcControllerBloc, CalcControllerState>(
+                  bloc: context.read<CalcControllerBloc>(),
+                  builder: (context, state) {
+                    return CalcDisplay(text: state.expression);
+                  },
+                ),
+              ),
+            ),
+            const Flexible(flex: 2, child: CalcButtons()),
           ],
         ),
       ),
       drawer: const Drawer(
         child: HistoryScreen(),
-      ),
-    );
-  }
-}
-
-class CalcDisplay extends StatelessWidget {
-  const CalcDisplay({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocListener<CalculationBloc, CalculationState>(
-      listener: (context, state) {
-        if (state is CalculationSuccessState) {
-          context.read<CalcControllerBloc>().add(SetDisplayableExpression(expr: state.result));
-        }
-      },
-      child: BlocBuilder<CalcControllerBloc, CalcControllerState>(
-        bloc: context.read<CalcControllerBloc>(),
-        builder: (context, state) {
-          return Center(child: Text(state.expression));
-        },
       ),
     );
   }

@@ -27,12 +27,12 @@ class CalculationBloc extends Bloc<CalculationEvent, CalculationState> {
   Future<void> _calculate(CalculateExpression event,
       Emitter<CalculationState> emit) async {
     final String expr = event.expression.split(
-        CalcOperationSign.multiply.displaySymbol,).join(
-        CalcOperationSign.multiply.exprSymbol,).split(
-        CalcOperationSign.division.displaySymbol,).join(
-        CalcOperationSign.division.exprSymbol,).split(
-        CalcOperationSign.sum.displaySymbol,).join(
-        CalcOperationSign.sum.exprSymbol,);
+      CalcOperationSign.multiply.displaySymbol,).join(
+      CalcOperationSign.multiply.exprSymbol,).split(
+      CalcOperationSign.division.displaySymbol,).join(
+      CalcOperationSign.division.exprSymbol,).split(
+      CalcOperationSign.sum.displaySymbol,).join(
+      CalcOperationSign.sum.exprSymbol,);
     emit(const CalculationInProgressState());
     final String res = await _gateway.calculate(expr);
     emit(CalculationSuccessState(result: res));

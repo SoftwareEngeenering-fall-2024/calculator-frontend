@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../domain/calculation/usecases/calculation_bloc.dart';
 import '../presentation/controller/calc_controller_bloc.dart';
 import '../presentation/main_screen.dart';
+import 'style/custom_theme.dart' as theme;
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -23,8 +24,9 @@ class App extends StatelessWidget {
           create: (BuildContext context) => HistoryBloc()..add(const LoadHistory()),
         ),
       ],
-      child: const MaterialApp(
-        home: MainScreen(),
+      child: MaterialApp(
+        theme: theme.light,
+        home: const MainScreen(),
       ),
     );
   }

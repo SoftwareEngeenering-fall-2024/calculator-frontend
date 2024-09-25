@@ -6,6 +6,7 @@ import '../domain/history/usecases/history_bloc.dart';
 import 'calc_button.dart';
 import 'calc_sign.dart';
 import 'controller/calc_controller_bloc.dart';
+import '../config/style/colors.dart' as colors;
 
 class CalcButtons extends StatelessWidget {
   const CalcButtons({super.key});
@@ -19,7 +20,11 @@ class CalcButtons extends StatelessWidget {
             children: [
               Expanded(
                 child: CalcButton(
-                  text: CalcSigns.leftParenthesis.displaySymbol,
+                  foregroundColor: Colors.black,
+                  backgroundColor: colors.lightGrey,
+                  fontWeight: FontWeight.w600,
+                  text: '${CalcSigns.leftParenthesis.displaySymbol} ',
+                  fontSizeFactor: 0.35,
                   onTap: () {
                     context.read<CalcControllerBloc>().add(
                       const AddParenthesis(
@@ -31,7 +36,11 @@ class CalcButtons extends StatelessWidget {
               ),
               Expanded(
                 child: CalcButton(
-                  text: CalcSigns.rightParenthesis.displaySymbol,
+                  foregroundColor: Colors.black,
+                  backgroundColor: colors.lightGrey,
+                  text: ' ${CalcSigns.rightParenthesis.displaySymbol}',
+                  fontWeight: FontWeight.w600,
+                  fontSizeFactor: 0.35,
                   onTap: () {
                     context.read<CalcControllerBloc>().add(
                       const AddParenthesis(
@@ -43,6 +52,9 @@ class CalcButtons extends StatelessWidget {
               ),
               Expanded(
                 child: CalcButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: colors.lightGrey,
+                  fontSizeFactor: 0.4,
                   text: 'C',
                   onTap: () {
                     context.read<CalcControllerBloc>().add(
@@ -53,6 +65,9 @@ class CalcButtons extends StatelessWidget {
               ),
               Expanded(
                 child: CalcButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: colors.lightGrey,
+                  fontSizeFactor: 0.4,
                   text: 'AC',
                   onTap: () {
                     context.read<CalcControllerBloc>().add(
@@ -99,6 +114,8 @@ class CalcButtons extends StatelessWidget {
               ),
               Expanded(
                 child: CalcButton(
+                  backgroundColor: colors.orange,
+                  fontSizeFactor: 0.7,
                   text: CalcOperationSign.division.displaySymbol,
                   onTap: () {
                     context
@@ -147,13 +164,16 @@ class CalcButtons extends StatelessWidget {
               ),
               Expanded(
                 child: CalcButton(
+                  backgroundColor: colors.orange,
+                  fontSizeFactor: 0.7,
                   text: CalcOperationSign.multiply.displaySymbol,
                   onTap: () {
                     context
                         .read<CalcControllerBloc>()
                         .add(const AddOperationSign(
                       calcSign: CalcOperationSign.multiply,
-                    ));
+                    ),
+                    );
                   },
                 ),
               ),
@@ -195,6 +215,8 @@ class CalcButtons extends StatelessWidget {
               ),
               Expanded(
                 child: CalcButton(
+                  backgroundColor: colors.orange,
+                  fontSizeFactor: 0.7,
                   text: CalcOperationSign.diff.displaySymbol,
                   onTap: () {
                     context
@@ -233,6 +255,7 @@ class CalcButtons extends StatelessWidget {
               ),
               Expanded(
                 child: CalcButton(
+                  backgroundColor: colors.purple,
                   text: '=',
                   onTap: () {
                     context.read<CalculationBloc>().add(
@@ -249,6 +272,8 @@ class CalcButtons extends StatelessWidget {
               ),
               Expanded(
                 child: CalcButton(
+                  backgroundColor: colors.orange,
+                  fontSizeFactor: 0.6,
                   text: CalcOperationSign.sum.displaySymbol,
                   onTap: () {
                     context

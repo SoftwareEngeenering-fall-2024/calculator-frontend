@@ -12,17 +12,21 @@ import 'history_dto.dart';
 @Singleton(as: CalculationGateway)
 class DioCalculationRepository implements CalculationGateway {
   final dio = Dio(
-    // BaseOptions(
-    //   baseUrl: config.serverAddress,
-    // ),
+    BaseOptions(
+      baseUrl: config.serverAddress,
+    ),
   );
 
   @override
   Future<String> calculate(String expression) async {
-    final Response<String> response =
-        await dio.get('http://192.168.0.81:8080/calc', queryParameters: {'expression': expression});
-    if (response.statusCode == 200) return response.data ?? "";
-    return "Ошибка";
+    try {
+      final Response<String> response =
+      await dio.get('/calc', queryParameters: {'expression': expression});
+      if (response.statusCode == 200) return response.data ?? "";
+      return "Ошибка";
+    } on DioException catch (e) {
+      return "Ошибка";
+    }
   }
 }
 
@@ -37,12 +41,16 @@ class DioHistoryRepository implements HistoryGateway {
 
   @override
   Future<List<HistoryEntity>> getHistory() async {
-    final Response<String> response = await dio.get('/calc/hist');
-    if (response.statusCode == 200) {
-      return HistoryDto.fromJson(
-              jsonDecode("{\"history\":${response.data.toString()}}") as Map<String, dynamic>,)
-          .history;
+    try {
+      final Response<String> response = await dio.get('/calc/hist');
+      if (response.statusCode == 200) {
+        return HistoryDto.fromJson(
+          jsonDecode("{\"history\":${response.data.toString()}}") as Map<String, dynamic>,)
+            .history;
+      }
+      return [];
+    } on DioException catch (e) {
+      return [];
     }
-    return [];
   }
 }
