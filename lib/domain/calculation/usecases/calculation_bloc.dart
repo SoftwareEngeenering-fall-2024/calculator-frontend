@@ -32,7 +32,9 @@ class CalculationBloc extends Bloc<CalculationEvent, CalculationState> {
       CalcOperationSign.division.displaySymbol,).join(
       CalcOperationSign.division.exprSymbol,).split(
       CalcOperationSign.sum.displaySymbol,).join(
-      CalcOperationSign.sum.exprSymbol,);
+      CalcOperationSign.sum.exprSymbol,).split(
+      CalcSigns.doubleSign.displaySymbol,).join(
+      CalcSigns.doubleSign.exprSymbol,);
     emit(const CalculationInProgressState());
     final String res = await _gateway.calculate(expr);
     emit(CalculationSuccessState(result: res));

@@ -127,7 +127,7 @@ class CalcControllerBloc
     } else {
       if (!curStateExpr
           .substring(lastNumBegin)
-          .contains(CalcSigns.doubleSign.displaySymbol) && curStateExpr[curStateExpr.length - 1] == CalcNumberSign.zero.displaySymbol) {
+          .contains(CalcSigns.doubleSign.displaySymbol) && curStateExpr.length - 1 == lastNumBegin && curStateExpr[curStateExpr.length - 1] == CalcNumberSign.zero.displaySymbol) {
         return;
       } else {
         emit(
