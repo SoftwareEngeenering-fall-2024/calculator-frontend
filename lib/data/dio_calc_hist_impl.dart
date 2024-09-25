@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:calculator_frontend/domain/history/entities/history_entity.dart';
+import 'package:calculator_frontend/presentation/calc_sign.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
@@ -22,7 +23,11 @@ class DioCalculationRepository implements CalculationGateway {
     try {
       final Response<String> response =
       await dio.get('/calc', queryParameters: {'expression': expression});
-      if (response.statusCode == 200) return response.data ?? "";
+      if (response.statusCode == 200) {
+        return (response.data ?? "").split(
+        CalcSigns.doubleSign.exprSymbol,).join(
+        CalcSigns.doubleSign.displaySymbol,);
+      }
       return "Ошибка";
     } on DioException catch (e) {
       return "Ошибка";

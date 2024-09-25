@@ -35,8 +35,9 @@ class _CalcDisplayState extends State<CalcDisplay> {
                 controller: _controller,
                 child: Text(
                   widget.text,
+                  textAlign: TextAlign.right,
                   style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.w300),
+                      fontSize: 16, fontWeight: FontWeight.w300,),
                 ),
               ),
             );
@@ -49,6 +50,7 @@ class _CalcDisplayState extends State<CalcDisplay> {
                 ),
                 child: AutoSizeText(
                   widget.text,
+                  textAlign: TextAlign.right,
                   style: TextStyle(
                       fontSize: constraints.maxHeight / 3,
                       fontWeight: FontWeight.w300),
