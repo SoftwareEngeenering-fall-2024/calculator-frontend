@@ -20,8 +20,8 @@ class HistoryListConverter
             CalcOperationSign.division.displaySymbol,).split(
             CalcOperationSign.sum.exprSymbol,).join(
             CalcOperationSign.sum.displaySymbol,).split(
-            CalcSigns.doubleSign.displaySymbol,).join(
-            CalcSigns.doubleSign.exprSymbol,),
+            CalcSigns.doubleSign.exprSymbol,).join(
+            CalcSigns.doubleSign.displaySymbol,),
           result: entity["result"]! as String,
         );
       });
