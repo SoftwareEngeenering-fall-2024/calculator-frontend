@@ -11,6 +11,7 @@ class HistoryListConverter
   List<HistoryEntity> fromJson(List<dynamic> json) =>
       List.generate(json.length, (ind) {
         final entity = json[ind] as Map<String, dynamic>;
+        print(entity["expression"]! as String);
         return HistoryEntity(
           expr: (entity["expression"]! as String).split(
             CalcOperationSign.multiply.exprSymbol,).join(

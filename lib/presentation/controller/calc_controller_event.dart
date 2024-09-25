@@ -53,10 +53,10 @@ final class AddNumberSign extends CalcControllerEvent {
   List<Object?> get props => [calcSign];
 }
 
-final class SetDisplayableExpression extends CalcControllerEvent {
+final class SetResultExpression extends CalcControllerEvent {
   final String expr;
 
-  const SetDisplayableExpression({required this.expr});
+  const SetResultExpression({required this.expr});
 
   @override
   List<Object?> get props => [expr];

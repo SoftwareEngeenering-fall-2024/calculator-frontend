@@ -29,7 +29,7 @@ class MainScreen extends StatelessWidget {
                   if (state is CalculationSuccessState) {
                     context
                         .read<CalcControllerBloc>()
-                        .add(SetDisplayableExpression(expr: state.result));
+                        .add(SetResultExpression(expr: state.result));
                   }
                 },
                 child: BlocBuilder<CalcControllerBloc, CalcControllerState>(

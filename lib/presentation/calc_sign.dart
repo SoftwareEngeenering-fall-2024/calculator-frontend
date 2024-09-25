@@ -36,7 +36,8 @@ enum CalcNumberSign implements CalcSign {
 }
 
 enum CalcOperationSign implements CalcSign {
-  sum(exprSymbol: "%2B", displaySymbol: "+"),
+  sum(exprSymbol: "+", displaySymbol: "+"),
+  // sum(exprSymbol: "%2B", displaySymbol: "+"),
   diff(exprSymbol: "-", displaySymbol: "-"),
   multiply(exprSymbol: "*", displaySymbol: "×"),
   division(exprSymbol: "/", displaySymbol: "÷");
