@@ -10,3 +10,6 @@ nix build
 ```#shell
 ./result/app/calculator_frontend
 ```
+
+### Demo
+<video src='demo/demo.mp4' width=180/>
